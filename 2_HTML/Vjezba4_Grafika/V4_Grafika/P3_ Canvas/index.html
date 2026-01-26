@@ -6,9 +6,13 @@
     <title>Canvas</title>
   </head>
   <body>
-    <canvas id="myCanvas1" ="600" height="200"></canvas>
+    <canvas id="myCanvas1" width="600" height="200"></canvas>
     <script>
-      document.getElementById(myCanvas1);
+      var canvasE1 = document.getElementById(myCanvas1);
+      var ctx = canvasE1.getContext("2d");
+
+      ctx.fillStyle = "#F00";
+      ctx.fillRect(10, 10, 100, 100);
     </script>
   </body>
 </html>
