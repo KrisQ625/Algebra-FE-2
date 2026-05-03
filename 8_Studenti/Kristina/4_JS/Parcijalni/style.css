@@ -40,13 +40,13 @@ p {
 
   padding: 5px;
 }
-button {
+#search-btn {
   width: 100px;
   height: 30px;
   border-radius: 5px;
   background-color: rgb(207, 199, 199);
 }
-button:hover {
+#search-btn:hover {
   background-color: rgb(246, 240, 240);
   cursor: pointer;
 }
