@@ -40,6 +40,18 @@ event.preventDefault();
 window.open("izmjena.html?id=" + odabraniNalogId, "_self");
 
   });
+  aBrisanjeEl.addEventListener("click", (event) => {
+event.preventDefault();
+ const answer= window.confirm("Obriši nalog?");
+ if(answer){
+    const nalogIndex = nalozi.indexOF(odabraniNalog);
+nalozi.splice(nalogIndex,1);
+localStorage.setItem("tmpNalozi", JSON.stringify(nalozi));
+   
+  window.open("lista.html?id=" , "_self");
+ }
+
+  });
   const odabraniNalogId = urlParmas.get("id");
 
   const odabraniNalog = nalozi.find(nalog => nalog.id === odabraniNalogId); 
