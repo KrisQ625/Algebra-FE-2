@@ -12,6 +12,7 @@ export const fetchData = async (searchTerm) => {
     });
     return returnData;
   } catch (error) {
+    console.log("Error fetching data:", error);
     return [];
   }
 };
