@@ -11,10 +11,10 @@ export default () => {
   const updateMusicList = () => {
     clearTimeout(timeout);
 
+    while (ulElement.firstChild) {
+      ulElement.removeChild(ulElement.firstChild);
+    }
     timeout = setTimeout(async () => {
-      while (ulElement.firstChild) {
-        ulElement.removeChild(ulElement.firstChild);
-      }
       const searchTerm = searchInput.value;
       if (searchTerm) {
         console.log(searchTerm);
