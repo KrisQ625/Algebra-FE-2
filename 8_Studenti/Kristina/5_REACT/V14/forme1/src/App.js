@@ -17,6 +17,15 @@ class App extends React.Component {
     this.setState({ name: "" });
   };
 
+  handleSubmit2 = (event) => {
+    event.preventDefault();
+    //alert(`Prezime :${event.target.elements.prezme.value}`);
+    //event.target.elements.prezime.value="";
+
+    const data = new FormData(event.taget);
+    alert(`Prezime : ${data.get("prezime")}`);
+  };
+
   render() {
     const { name } = this.state;
 
@@ -26,6 +35,12 @@ class App extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>Ime:</label>
           <input type="text" value={name} onChange={this.handleChange} />
+          <button type="submit">Pošalji</button>
+        </form>
+        <hr />
+        <form onSubmit={this.handleSubmit2}>
+          <label>Prezime:</label>
+          <input type="text" name="prezime" />
           <button type="submit">Pošalji</button>
         </form>
       </div>
