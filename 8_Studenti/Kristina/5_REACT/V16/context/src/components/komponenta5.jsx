@@ -14,7 +14,7 @@ class Komponenta5 extends React.Component {
       <>
         <h2>Komponenta 5</h2>
 
-        <Consumer>{(ctx) => <p>{ctx.text}</p>}</Consumer>
+        <Consumer>{(ctx) => <p>{ctx.text}-{ctx.number}</p>}</Consumer>
         <p>{editText}</p>
       </>
     );

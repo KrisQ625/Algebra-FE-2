@@ -3,7 +3,7 @@ import "./App.css";
 import { Provider } from "./context/context.js";
 import { useState } from "react";
 function App() {
-  const { number, setNumber } = useState(0);
+  const [ number, setNumber ] = useState(0);
 
   function textCangeHandler(event) {
     setNumber(event.target.value);
