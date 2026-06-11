@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import "./App.css";
 import { ADD_COUNT, SUBTRACT_COUNT, RESET } from "./store/redux-store";
-
+import MojaKomponenta1 from "./components/MojaKomponenta1";
 function App() {
   const counter = useSelector((state) => state.counter);
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ function App() {
     dispatch({ type: SUBTRACT_COUNT, payload: 1 });
   }
   function reset() {
-    dispatch({ type: "RESET" });
+    dispatch({ type: RESET });
   }
   return (
     <div className="App">
@@ -24,6 +24,7 @@ function App() {
       <div>
         <button onClick={reset}>Reset</button>
       </div>
+      <MojaKomponenta1 />
     </div>
   );
 }
