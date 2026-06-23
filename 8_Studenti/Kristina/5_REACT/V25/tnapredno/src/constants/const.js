@@ -1,5 +1,5 @@
 export const VISIBILITY_TYPES = {
-  ALL: "ALL",
-  ACTIVE: "ACTIVE",
-  COMPLETED: "COMPLETED",
+  ALL: "all",
+  ACTIVE: "active",
+  COMPLETED: "completed",
 };

@@ -6,19 +6,22 @@ import { VISIBILITY_TYPES } from "./constants/const";
 import { REMOVE_ALL_COMLPETED } from "./store/redux-store";
 import { connect } from "react-redux";
 class App extends React.Component {
-  /* state = {
-    todos: [
-      { id: "1", text: "Kupiti novine", completed: false },
-      { id: "2", text: "Prošetati psa", completed: false },
-      { id: "3", text: "Oprati auto", completed: true },
-    ],
-  };*/
   state = {
     visibility: VISIBILITY_TYPES.ALL,
   };
   componentDidUpdate() {
     const { todos } = this.state;
     localStorage.setItem("todos", JSON.stringify(todos));
+  }
+
+  componentDidMount() {
+    const pathName = window.location.href;
+    if (pathName.includes(VISIBILITY_TYPES.ACTIVE)) {
+      this.setState({ visibility: VISIBILITY_TYPES.ACTIVE });
+    }
+    if (pathName.includes(VISIBILITY_TYPES.COMPLETED)) {
+      this.setState({ visibility: VISIBILITY_TYPES.COMPLETED });
+    }
   }
 
   /*handleAddTodo(value) {
@@ -32,18 +35,6 @@ class App extends React.Component {
 
     this.setState({ todos: [...todos, newTodo] });
   }*/
-
-  handleToggleTodo(id) {
-    const { todos } = this.state;
-    const todo = todos.find((todo) => todo.id === id);
-    todo.completed = !todo.completed;
-    this.setState({ todos });
-  }
-
-  handleRemoveTodo(id) {
-    const { removeTodo } = this.props;
-    removeTodo();
-  }
 
   handleRemoveCompleted() {
     const { todos } = this.state;

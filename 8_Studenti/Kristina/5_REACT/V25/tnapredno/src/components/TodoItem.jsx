@@ -1,6 +1,8 @@
 import React from "react";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 import FormCheck from "react-bootstrap/FormCheck";
+import { DELETE_TODO, TOGGLE_TODO } from "../store/redux-store";
+import { connect } from "react-redux";
 
 class TodoItem extends React.Component {
   handleToggleTodoClick() {
@@ -39,4 +41,11 @@ class TodoItem extends React.Component {
   }
 }
 
-export default TodoItem;
+function mapDispatchToProps(dispatch){
+  return{
+    toggleTodo: (id) => dispatch({ type: TOGGLE_TODO, payload: id }),
+    removeTodo: (id) => dispatch({ type: DELETE_TODO, payload: id })
+  };
+}
+
+export default connect(null, mapDispatchToProps)(TodoItem);
