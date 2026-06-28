@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./App.css";
 import { UserForm, GithubRepoos, GithubUser } from "./components";
-
+import Button from "react-bootstrap/Button";
 function App() {
-  const { user, setUser } = useState("1");
+  const { user, setUser } = useState(null);
 
-  if (user) {
+  if (!user) {
     return (
       <div className="App">
         <UserForm />
