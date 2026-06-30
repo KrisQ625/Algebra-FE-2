@@ -1,5 +1,3 @@
-export default exportDefault;
-
 function resolveResponse(response) {
   if (response.status === 200) {
     return response.json();
@@ -25,3 +23,5 @@ const exportDefault = {
   fetchUser,
   fetchUserRepos,
 };
+
+export default exportDefault;

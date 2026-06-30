@@ -1,4 +1,4 @@
-export default function GithubRepos(repos) {
+export default function GithubRepos({ repos }) {
   return (
     <>
       <p>
