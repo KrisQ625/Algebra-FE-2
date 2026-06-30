@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { UserForm, GithubRepoos, GithubUser } from "./components";
 
-import { GithubApi } from "./services/inde";
+import { GithubApi } from "./services";
 
 function App() {
   const [user, setUser] = useState(null);
