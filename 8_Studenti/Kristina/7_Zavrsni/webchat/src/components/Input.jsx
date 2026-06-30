@@ -13,6 +13,9 @@ class Input extends React.Component {
   handleSubmit = (event) => {
     event.preventDeafult();
 
+    const { onSendMessage } = this.props;
+    const { text } = this.state;
+    onSendMessage(text);
     //
 
     this.setState({ text: "" });

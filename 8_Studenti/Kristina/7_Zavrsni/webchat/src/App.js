@@ -5,6 +5,15 @@ import { memberGenerator } from "./services";
 import { Scaledrone } from "./services";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      messages: [],
+      currentmemberId: null,
+    };
+  }
+
   UNSAFE_componentWillMount() {
     const config = {
       member: memberGenerator.get(),
@@ -15,20 +24,27 @@ class App extends React.Component {
     this.drone = new Scaledrone(config);
   }
 
-  onInit = () => {};
+  onInit = (currentMemberId) => this.setState({ currentMemberId });
 
-  onMessageRecived = () => {};
+  onMessageRecived = (newMessage) => {
+    const { messages } = this.state;
+    this.setState({ messages: [...messages, newMessage] });
+  };
 
   render() {
+    const { messages, currentMemberId } = this.state;
+
     return (
       <div className="app">
         <div className="header">
           <h1>My Chat App</h1>
         </div>
-        <ul>
-          <Message />
+        <ul className="message-list">
+          {messages.map((message) => (
+            <Message message={message} currentMemberId={currentMemberId} />
+          ))}
         </ul>
-        <Input />
+        <Input onSendMessage={this.drone.sendMessage} />
       </div>
     );
   }

@@ -8,8 +8,7 @@ export default function scaledrone({ member, onInit, onMessageRecived }) {
 
   drone.on(APP_OPEN_EVENT, (error) => {
     if (!error) {
-      console.log(drone.clientId);
-      console.log(drone);
+      onInit(drone.clientId);
     }
   });
 

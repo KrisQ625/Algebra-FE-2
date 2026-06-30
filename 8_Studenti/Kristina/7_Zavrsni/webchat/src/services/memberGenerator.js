@@ -1,4 +1,4 @@
-import generateName from "silyname";
+import generateName from "sillyname";
 import randomColor from "randomcolor";
 
 function getMember() {
@@ -8,8 +8,8 @@ function getMember() {
   };
 }
 
-const exportDefault={
-  get: getMember
-},
+const exportDefault = {
+  get: getMember,
+};
 
 export default exportDefault;
